@@ -1,0 +1,25 @@
+version: 1.0.0
+history:
+  1.0.0:
+    date: '2025-09-18'
+    title: 'First version'
+    description: 'First version. Manifest created.'
+plugin:
+  -
+    name: wf/array
+    version: 1.7.1
+  -
+    name: server/json
+    version: 1.13.0
+sys:
+  -
+    name: mercury
+    version:
+      - 2.111.2
+php:
+  version:
+    - 8.2.0
+author: null
+links: null
+description: ''
+third_part_software: null

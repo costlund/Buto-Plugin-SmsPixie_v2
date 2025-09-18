@@ -1,0 +1,80 @@
+readme:
+  name: Buto-Plugin-SmsPixie_v2
+  description: |
+    SMS using <a href="http://www.pixie.se" target="_blank">Pixie</a> service.
+    - https://pixie.se/support#api
+    - https://app.pixie.se/#settings/user (token)
+    - This is for the new service of Pixie after 2022.
+    - If you are using the old service before 2022 one must migrate to new service.
+  item:
+    -
+      name: Settings
+      description: |
+        ```
+        plugin:
+          sms:
+            pixie_v2:
+              data:
+                log: '/../buto_data/theme/[theme]/pixie_v2_log.yml'
+        ```
+    -
+      name: Usage
+      description: |
+        ```
+        $data = new PluginWfArray();
+        ```
+        Identifying sender.
+        Alphanumeric, can have max 11 characters, number max 15 characters.
+        ```
+        $data->set('sender', 'My-Web-Site');
+        ```
+        ```
+        $data->set('token', ' Token generated in pixie.se panel. ');
+        ```
+        ```
+        $data->set('to', ' Mobile number. ');
+        ```
+        cc param to send copies.
+        ```
+        $data->set('cc', array(' cc Mobile numbers (Optional). '));
+        ```
+        ```
+        $data->set('message', 'Message from my web site.');
+        ```
+        ```
+        $data->set('country', ' Optional default 46. ');
+        ```
+        ```
+        wfPlugin::includeonce('sms/pixie_v2');
+        PluginSmsPixie_v2::send($data);
+        ```
+    -
+      name: Widgets
+      item:
+        -
+          name: test
+          description: |
+            Widget for testing purpose.
+            ```
+            type: widget
+            settings:
+              role:
+                item:
+                  - webmaster
+            data:
+              plugin: sms/pixie_v2
+              method: test
+              data:
+                sender: SMS-TEST
+                token: ' my token '
+                to: ' mobile number '
+                country: '46'
+                message: 'Testing SMS.'
+            ```
+    -
+      name: Methods
+      item:
+        -
+          name: send
+        -
+          name: remove_first_zero
