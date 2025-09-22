@@ -1,5 +1,9 @@
-version: 1.0.0
+version: 1.1.0
 history:
+  1.1.0:
+    date: '2025-09-22'
+    title: 'Country code'
+    description: 'Handle if number has +** prefix as country code. If this is the case no other country code is added before.'
   1.0.0:
     date: '2025-09-18'
     title: 'First version'

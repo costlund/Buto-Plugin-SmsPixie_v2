@@ -30,13 +30,13 @@ class PluginSmsPixie_v2{
      * recipients
      */
     $recipients = new PluginWfArray();
-    $recipients->set(true, $default->get('country').$default->get('to'));
+    $recipients->set(true, PluginSmsPixie_v2::merge_country_and_number($default->get('to'), $default->get('country')));
     /**
      * recipients, cc
      */
     foreach ($default->get('cc') as $key => $value) {
       $value = PluginSmsPixie_v2::remove_first_zero($value);
-      $recipients->set(true, $default->get('country').$value);
+      $recipients->set(true, PluginSmsPixie_v2::merge_country_and_number($value, $default->get('country')));
     }
     /**
      * send
@@ -60,7 +60,14 @@ class PluginSmsPixie_v2{
     /**
      * 
      */
-    return $default->get();
+    return $default;
+  }
+  public static function merge_country_and_number($to, $country){
+    if(substr($to, 0, 1)!='+'){
+      return $country.$to;
+    }else{
+      return $to;
+    }
   }
   public static function remove_first_zero($phone){
     if(wfPhpfunc::substr($phone, 0, 1) == '0'){
