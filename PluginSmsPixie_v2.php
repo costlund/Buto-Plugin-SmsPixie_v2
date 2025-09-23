@@ -43,7 +43,7 @@ class PluginSmsPixie_v2{
      */
     wfPlugin::includeonce('server/json');
     $server = new PluginServerJson();
-    $server->token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJwZXRyaUBtYWMuY29tIiwianRpIjoiODNhN2I4ZjktMDU1ZC00M2IyLTgwNWYtNTdlOTg5NDY0ZTQ2IiwiaWF0IjoxNzU4MTEwOTM4LCJpZCI6IjExNjEwMjU0IiwiQ29tcGFueUlkIjoiMTE2MTAyNTQiLCJJc1N1YmFjY291bnQiOiJGYWxzZSIsIklzQXBpIjoiVHJ1ZSIsIklzQWRtaW4iOiJGYWxzZSIsIm5iZiI6MTc1ODExMDkzOCwiZXhwIjoyNTM0MDIzMDA4MDAsImlzcyI6InNtc0FwaSIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4NS8ifQ.8hw1FA3UBr9DS-QTy41iqogkTAdcOWlvkUQ8uGYhFA8';
+    $server->token = $default->get('token');
     $default->set('recipients', $recipients->get());
     $response = $server->send('https://app.pixie.se/api/v2/sms', $default->get());
     $default->set('response', $response);
