@@ -25,7 +25,7 @@
 <pre><code>$data = new PluginWfArray();</code></pre>
 <p>Identifying sender.
 Alphanumeric, can have max 11 characters, number max 15 characters.</p>
-<pre><code>$data-&gt;set('sender', 'My-Web-Site');</code></pre>
+<pre><code>$data-&gt;set('sender', 'Sender phone number');</code></pre>
 <pre><code>$data-&gt;set('token', ' Token generated in pixie.se panel. ');</code></pre>
 <pre><code>$data-&gt;set('to', ' Mobile number. ');</code></pre>
 <p>cc param to send copies.</p>
